@@ -61,6 +61,10 @@ fn main() {
         debug_log!("Copy {} to {}", knf_src.display(), knf_dst.display());
         list_files(&knf_src);
         list_files(&knf_dst.parent().expect("no parent"));
+        debug_log!(
+            "knf_dst.parent() exists: {}",
+            knf_dst.parent().expect("no parent").exists()
+        );
         copy_folder(&knf_src, &knf_dst);
     }
 
@@ -68,6 +72,10 @@ fn main() {
         debug_log!("Copy {} to {}", knfc_src.display(), knfc_dst.display());
         list_files(&knfc_src);
         list_files(&knfc_dst.parent().expect("no parent"));
+        debug_log!(
+            "knfc_dst.parent() exists: {}",
+            knfc_dst.parent().expect("no parent").exists()
+        );
         copy_folder(&knfc_src, &knfc_dst);
     }
 
