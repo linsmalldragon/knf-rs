@@ -60,15 +60,15 @@ fn main() {
     if !knf_dst.exists() {
         debug_log!("Copy {} to {}", knf_src.display(), knf_dst.display());
         list_files(&knf_src);
+        list_files(&knf_dst.parent().expect("no parent"));
         copy_folder(&knf_src, &knf_dst);
-        list_files(&knf_dst);
     }
 
     if !knfc_dst.exists() {
         debug_log!("Copy {} to {}", knfc_src.display(), knfc_dst.display());
         list_files(&knfc_src);
+        list_files(&knfc_dst.parent().expect("no parent"));
         copy_folder(&knfc_src, &knfc_dst);
-        list_files(&knfc_dst);
     }
 
     // Bindings

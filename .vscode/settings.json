@@ -4,5 +4,6 @@
         "iostream": "cpp",
         "string": "cpp"
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "cmake.sourceDirectory": "/Users/linxiaolong/Documents/project/knf-rs/sys/knf"
 }
