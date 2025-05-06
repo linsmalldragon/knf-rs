@@ -9,6 +9,12 @@ macro_rules! debug_log {
         }
     };
 }
+fn list_files(path: &Path) {
+    for entry in std::fs::read_dir(path).expect("Failed to read directory") {
+        let entry = entry.expect("Failed to read entry");
+        debug_log!("{}", entry.path().display());
+    }
+}
 
 fn copy_folder(src: &Path, dst: &Path) {
     std::fs::create_dir_all(dst).expect("Failed to create dst directory");
@@ -53,12 +59,16 @@ fn main() {
 
     if !knf_dst.exists() {
         debug_log!("Copy {} to {}", knf_src.display(), knf_dst.display());
+        list_files(&knf_src);
         copy_folder(&knf_src, &knf_dst);
+        list_files(&knf_dst);
     }
 
     if !knfc_dst.exists() {
         debug_log!("Copy {} to {}", knfc_src.display(), knfc_dst.display());
+        list_files(&knfc_src);
         copy_folder(&knfc_src, &knfc_dst);
+        list_files(&knfc_dst);
     }
 
     // Bindings
