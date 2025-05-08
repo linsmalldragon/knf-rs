@@ -151,12 +151,12 @@ name = "knf-rs-new"
 version = "0.2.4"
 dependencies = [
  "eyre",
- "knf-rs-sys",
+ "knf-rs-sys-new",
  "ndarray",
 ]
 
 [[package]]
-name = "knf-rs-sys"
+name = "knf-rs-sys-new"
 version = "0.2.4"
 dependencies = [
  "bindgen",
