@@ -19,7 +19,7 @@ fn list_files(path: &Path) {
 fn copy_folder(src: &Path, dst: &Path) {
     std::fs::create_dir_all(dst).expect("Failed to create dst directory");
     if cfg!(unix) {
-        std::process::Command::new("cp")
+        std::process::Command::new("/bin/cp")
             .arg("-rf")
             .arg(src)
             .arg(dst.parent().expect("no parent"))

@@ -7,7 +7,7 @@ pub fn compute_fbank(samples: &[f32]) -> Result<Array2<f32>> {
     }
 
     let mut result = unsafe {
-        knf_rs_sys_new::ComputeFbank(
+        knf_rs_sys::ComputeFbank(
             samples.as_ptr(),
             samples.len().try_into().context("samples len")?,
         )
@@ -31,7 +31,7 @@ pub fn compute_fbank(samples: &[f32]) -> Result<Array2<f32>> {
     )?;
 
     unsafe {
-        knf_rs_sys_new::DestroyFbankResult(&mut result as *mut _);
+        knf_rs_sys::DestroyFbankResult(&mut result as *mut _);
     }
 
     if frames_array.is_empty() {
