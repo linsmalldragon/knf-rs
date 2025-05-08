@@ -122,7 +122,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "knf-rs-sys"
+name = "knf-rs-sys-new"
 version = "0.2.5"
 dependencies = [
  "bindgen",
